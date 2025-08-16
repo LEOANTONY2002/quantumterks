@@ -42,8 +42,8 @@ export default function Hero() {
         </div>
 
         {/* Right visual */}
-        <div className="bg-gradient-to-b from-white to-sky-100 lg:bg-gradient-to-b lg:from-sky-50 lg:to-white lg:bg-white flex items-end w-full absolute sm:w-screen sm:h-screen bottom-18 top-auto right-0 lg:bottom-0 lg:top-0 lg:right-0 lg:w-[55vw] lg:z-0 pointer-events-none overflow-hidden">
-          <Image src={hero} className="lg:ml-5 flex w-full h-auto" alt="Hero" />
+        <div className="bg-gradient-to-b from-white to-sky-100 lg:bg-gradient-to-b lg:from-sky-50 lg:to-white lg:bg-white flex items-end w-full absolute sm:w-screen bottom-18 top-auto right-0 lg:top-0 lg:right-0 lg:w-[50vw] lg:z-0 pointer-events-none overflow-hidden">
+          <Image src={hero} className="lg:ml-5" alt="Hero" />
         </div>
       </div>
     </section>
