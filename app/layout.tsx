@@ -10,6 +10,7 @@ const interSans = Inter({
 const dmSerifDisplay = DM_Serif_Display({
   variable: "--font-dm-serif-display",
   weight: "400",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
