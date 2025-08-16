@@ -35,37 +35,30 @@ export default function Industries() {
       className="relative bg-gradient-to-br from-white via-purple-50/20 to-white py-24 scroll-mt-24"
       aria-labelledby="industries-heading"
     >
-      <div className="absolute inset-0 overflow-hidden" aria-hidden>
-        <div className="absolute -top-32 -left-32 h-72 w-72 rounded-full bg-sky-100/30 blur-3xl" />
-        <div className="absolute -bottom-32 -right-32 h-72 w-72 rounded-full bg-teal-100/30 blur-3xl" />
-      </div>
-
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-[80vw] lg:max-w-2xl text-center">
           <h2
             id="industries-heading"
-            className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+            className="text-xl font-bold tracking-tight text-gray-900"
           >
             Industries We Serve
           </h2>
-          <p className="mt-3 text-base text-slate-600">
-            Deep expertise across technology and healthcare to deliver outcomes
-            that matter.
-          </p>
         </div>
 
-        {/* Grouped left/right with titles */}
-        <div className="mx-auto mt-10 max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Stacked groups (one after another) with titles */}
+        <div className="mx-auto mt-10 max-w-6xl space-y-10">
           {industries.map((group) => (
-            <section key={group.name} aria-labelledby={`${group.name}-title`}>
+            <section
+              key={group.name}
+              aria-labelledby={`flex flex-col items-center`}
+            >
               <h3
                 id={`${group.name}-title`}
-                className="text-xl font-semibold text-[#0e3e69] mb-4 flex items-center gap-2"
+                className="text-xl text-center w-full font-semibold text-[#0e3e69] mb-4 flex items-center gap-2"
               >
-                <span className="inline-block h-2 w-2 rounded-full bg-sky-400" />
                 {group.name}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-5">
                 {group.items.map((item) => {
                   const tech = group.name === "Technology Sector";
                   const accent = tech
@@ -123,7 +116,7 @@ export default function Industries() {
                       key={`${group.name}-${item}`}
                       role="article"
                       aria-label={item}
-                      className="group relative bg-gradient-to-br from-teal-400 to-sky-600 p-[2px] max-w-50 rounded-2xl"
+                      className="group relative bg-gradient-to-br from-teal-400 to-sky-600 p-[2px]  rounded-2xl"
                     >
                       <div className="flex flex-col items-center text-center gap-2 bg-[#ffffffcf] p-2 pb-6 rounded-[13px]">
                         <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffffff4b] border border-white">
