@@ -32,26 +32,28 @@ export default function About() {
   const track = useMemo(
     () => (
       <div
-        className="w-full overflow-hidden rounded-2xl bg-white h-full align-center justify-center"
+        className="w-full overflow-hidden rounded-2xl bg-white h-full"
         aria-roledescription="carousel"
       >
         <div
-          className="flex transition-transform duration-500 ease-out h-full align-center justify-center flex flex-column items-center"
+          className="flex transition-transform duration-500 ease-out h-full"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {aboutSlides.map((slide) => (
             <article
               key={slide.key}
-              className="min-w-full p-5 sm:p-6 md:p-7"
+              className="basis-full shrink-0"
               aria-label={slide.label}
             >
-              <div className="inline-flex mb-3 items-center rounded-md bg-sky-500 text-white px-6 py-3 text-xl font-bold shadow">
-                {slide.title}
-              </div>
-              <div className="rounded-md border border-sky-400 p-4 md:p-5 bg-sky-50">
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                  {slide.body}
-                </p>
+              <div className="p-5 sm:p-6 md:p-7">
+                <div className="inline-flex mb-3 items-center rounded-md bg-sky-500 text-white px-6 py-3 text-xl font-bold shadow">
+                  {slide.title}
+                </div>
+                <div className="rounded-md border border-sky-400 p-4 md:p-5 bg-sky-50">
+                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    {slide.body}
+                  </p>
+                </div>
               </div>
             </article>
           ))}
