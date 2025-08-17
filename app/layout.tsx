@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   description:
     "Expert staffing solutions for technology and healthcare organizations. We bridge the gap between specialized qualifications and the demands of modern workplaces.",
   icons: {
-    icon: "/favicon.ico",
+    // Add cache-busting param to avoid stale browser caches in production
+    icon: "/favicon.ico?v=2",
   },
 };
 
@@ -32,8 +33,9 @@ export default function RootLayout({
       <head>
         <meta name="color-scheme" content="light" />
         <meta name="theme-color" content="#ffffff" />
-        {/* Fallback explicit favicon link for platforms like Netlify */}
-        <link rel="icon" href="/favicon.ico" />
+        {/* Explicit favicon link with cache-busting to mitigate aggressive caching */}
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico?v=2" />
       </head>
       <body
         className={`${interSans.variable} ${dmSerifDisplay.variable} antialiased`}
