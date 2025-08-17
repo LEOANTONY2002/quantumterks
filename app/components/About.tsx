@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { aboutSlides } from "./data/aboutSlides";
+import Title from "./Title";
 
 export default function About() {
   const [index, setIndex] = useState(0);
@@ -45,11 +46,9 @@ export default function About() {
               className="basis-full shrink-0"
               aria-label={slide.label}
             >
-              <div className="p-5 sm:p-6 md:p-7">
-                <div className="inline-flex mb-3 items-center rounded-md bg-sky-500 text-white px-6 py-3 text-xl font-bold shadow">
-                  {slide.title}
-                </div>
-                <div className="rounded-md border border-sky-400 p-4 md:p-5 bg-sky-50">
+              <div className="p-5 sm:p-6 md:p-7 z-0 h-full w-full flex flex-col items-start justify-center gap-4">
+                <Title title={slide.title} />
+                <div className="rounded-2xl border border-[#fafcfd7b] p-4 md:p-5 backdrop-blur-[10px] shadow-[0_10px_40px_rgba(0,0,0,0.1)] z-1">
                   <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
                     {slide.body}
                   </p>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { services } from "./data/serviceSlides";
+import Title from "./Title";
 
 export default function Service() {
   // Carousel state like About.tsx
@@ -60,10 +61,10 @@ export default function Service() {
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {services.map((svc) => (
-            <div key={svc.name} className="min-w-full px-2">
+            <div key={svc.name} className="min-w-full px-6">
               {/* Slide heading */}
               <div className="mx-auto max-w-3xl text-center">
-                <h3 className="text-2xl sm:text-3xl font-semibold text-[#0e3e69]">
+                <h3 className="text-4xl font-serif font-semibold text-[#0e3e69]">
                   {svc.name}
                 </h3>
               </div>
@@ -125,11 +126,9 @@ export default function Service() {
         <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-purple-100/30 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto  px-6 lg:px-8">
-        <div className="mx-auto max-w-[80vw] lg:max-w-2xl text-center">
-          <h2 className=" font-bold tracking-tight text-gray-900 text-xl">
-            Our Services
-          </h2>
+      <div className="relative mx-auto">
+        <div className="mx-auto max-w-[80vw] mb-7 lg:max-w-2xl text-center">
+          <Title title="Our Services" />
         </div>
 
         {/* Carousel track */}

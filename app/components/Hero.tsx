@@ -22,7 +22,7 @@ export default function Hero() {
           <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start">
             <Link
               href="#contact"
-              className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-300 to-sky-400 px-6 py-4 text-white text-sm font-medium shadow hover:bg-sky-700"
+              className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-300 to-sky-400 px-6 py-4 text-white text-sm shadow hover:bg-sky-700 font-extrabold"
             >
               Get Started Today
             </Link>
