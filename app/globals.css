@@ -70,3 +70,54 @@ body::-webkit-scrollbar {
     animation: none;
   }
 }
+
+/* Mobile menu slide-in (Header.tsx uses animate-[slideIn_.2s_ease]) */
+@keyframes slideIn {
+  from {
+    transform: translateX(20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Subtle fade-up entrance */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-in {
+  animation: fadeUp 600ms ease-out both;
+}
+
+/* Generic reveal-on-scroll utility toggled via JS */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+.reveal.is-inview {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-in,
+  .reveal,
+  .reveal.is-inview {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

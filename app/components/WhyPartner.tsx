@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Title from "./Title";
 
 type ListProps = {
@@ -38,14 +38,27 @@ const CheckIcon = () => (
 
 const BulletList = ({ items }: ListProps) => (
   <ul className="space-y-3">
-    {items.map((text) => (
-      <li key={text} className="flex items-start gap-3">
-        <span className="mt-0.5 shrink-0">
-          <CheckIcon />
-        </span>
-        <span className="text-slate-700 leading-relaxed">{text}</span>
-      </li>
-    ))}
+    {items.map((text, i) => {
+      const [head, ...rest] = text.split(":");
+      const tail = rest.join(":").trim();
+      return (
+        <li
+          key={text}
+          className="flex items-start gap-3 reveal"
+          style={{ transitionDelay: `${i * 80}ms` }}
+        >
+          <span className="mt-0.5 shrink-0">
+            <CheckIcon />
+          </span>
+          <div className="leading-relaxed">
+            <span className="text-slate-800">{head}{rest.length ? ":" : ""}</span>
+            {tail && (
+              <span className="block text-slate-500 text-sm mt-0.5">{tail}</span>
+            )}
+          </div>
+        </li>
+      );
+    })}
   </ul>
 );
 
@@ -66,6 +79,21 @@ export default function WhyPartner() {
     "Long-term Partnership: Ongoing career support and relationship building",
   ];
 
+  useEffect(() => {
+    const section = document.getElementById("why-partner");
+    if (!section) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("is-inview");
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+    );
+    section.querySelectorAll<HTMLElement>(".reveal").forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <section
       id="why-partner"
@@ -82,7 +110,7 @@ export default function WhyPartner() {
 
         <div className="mt-20 grid grid-cols-1 gap-6 lg:grid-cols-2">
           {/* Employers */}
-          <article className="relative rounded-2xl p-6 md:p-8 bg-gradient-to-br from-white to-sky-50/60 border border-[#e6f0fb] shadow-[0_10px_30px_rgba(2,132,199,0.08)]">
+          <article className="relative rounded-2xl p-6 md:p-8 bg-gradient-to-br from-white to-sky-50/60 border border-[#e6f0fb] shadow-[0_10px_30px_rgba(2,132,199,0.08)] transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(2,132,199,0.12)]">
             <h3 className="text-2xl font-serif font-semibold text-[#0e3e69] mb-4">
               For Employers
             </h3>
@@ -90,7 +118,7 @@ export default function WhyPartner() {
           </article>
 
           {/* Professionals */}
-          <article className="relative rounded-2xl p-6 md:p-8 bg-gradient-to-br from-white to-teal-50/60 border border-[#e6f7f4] shadow-[0_10px_30px_rgba(13,148,136,0.08)]">
+          <article className="relative rounded-2xl p-6 md:p-8 bg-gradient-to-br from-white to-teal-50/60 border border-[#e6f7f4] shadow-[0_10px_30px_rgba(13,148,136,0.08)] transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(13,148,136,0.12)]">
             <h3 className="text-2xl font-serif font-semibold text-[#0e3e69] mb-4">
               For Professionals
             </h3>

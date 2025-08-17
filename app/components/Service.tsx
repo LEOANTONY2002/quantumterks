@@ -69,10 +69,11 @@ export default function Service() {
                 </h3>
               </div>
               <div className="mx-auto mt-8 grid max-w-5xl grid-cols-1 gap-6 lg:max-w-6xl md:grid-cols-2 lg:grid-cols-3">
-                {svc.children.map((group) => (
+                {svc.children.map((group, i) => (
                   <div
                     key={group.name}
-                    className={`relative rounded-2xl p-6 transition-all duration-200 ease-out opacity-95 hover:opacity-100 transform hover:scale-[1.02] bg-gradient-to-br from-sky-50 to-teal-20 shadow-[5px_5px_30px_#0000001a] hover:shadow-[5px_5px_30px_#0000001a]`}
+                    className={`relative rounded-2xl p-6 transition-all duration-300 ease-out opacity-95 hover:opacity-100 transform hover:scale-[1.02] hover:-translate-y-0.5 bg-gradient-to-br from-sky-50 to-teal-20 shadow-[5px_5px_30px_#0000001a] hover:shadow-[5px_5px_30px_#00000026] reveal`}
+                    style={{ transitionDelay: `${i * 90}ms` }}
                   >
                     <h4 className="text-lg font-semibold text-[#0e3e69]">
                       {group.name}
@@ -116,11 +117,23 @@ export default function Service() {
     [index]
   );
 
+  useEffect(() => {
+    const section = document.getElementById("services");
+    if (!section) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("is-inview");
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+    );
+    section.querySelectorAll<HTMLElement>(".reveal").forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section
-      id="services"
-      className="relative bg-gradient-to-br from-white via-blue-50/30 to-white py-24 scroll-mt-24"
-    >
+    <section id="services" className="relative  py-24 scroll-mt-24">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-blue-100/30 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-purple-100/30 blur-3xl" />

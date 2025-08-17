@@ -7,10 +7,11 @@ import logo from "../../assets/images/logo.png";
 export default function Header() {
   const items = useMemo(
     () => [
-      { id: "home", label: "HOME" },
-      { id: "about", label: "ABOUT US" },
-      { id: "services", label: "OUR SERVICES" },
-      { id: "contact", label: "CONTACT US" },
+      { id: "home", label: "Home" },
+      { id: "about", label: "About Us" },
+      { id: "services", label: "Our Services" },
+      { id: "process", label: "Our Process" },
+      { id: "contact", label: "Contact Us" },
     ],
     []
   );
@@ -118,7 +119,7 @@ export default function Header() {
   return (
     <header
       className={
-        `w-full sticky top-0 z-40 border-b border-black/5 ` +
+        `w-full fixed top-0 left-0 right-0 z-50 border-b border-black/5 ` +
         (mobileOpen
           ? `bg-white`
           : `bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60`)
@@ -143,9 +144,10 @@ export default function Header() {
               onClick={handleClick(item.id)}
               aria-current={active === item.id ? "page" : undefined}
               className={
-                active === item.id
-                  ? "text-sky-500 font-bold"
-                  : "text-black/80 hover:text-black transition"
+                (active === item.id
+                  ? "text-sky-600 font-semibold after:w-full"
+                  : "text-black/80 hover:text-black") +
+                " relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-current after:w-0 after:transition-all after:duration-200"
               }
             >
               {item.label}

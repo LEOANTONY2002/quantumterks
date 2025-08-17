@@ -10,7 +10,7 @@ export default function Hero() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:h-screen lg:-mt-30 flex items-center">
         {/* Left text */}
-        <div className="z-[1]">
+        <div className="z-[1] animate-hero-in" style={{ animationDelay: "80ms" }}>
           <h1 className="mt-4 font-serif text-3xl sm:text-4xl lg:text-5xl leading-tight text-slate-900 text-center lg:text-left">
             Connect Talent with Opportunity in IT & Healthcare
           </h1>
@@ -22,19 +22,19 @@ export default function Hero() {
           <div className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start">
             <Link
               href="#contact"
-              className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-300 to-sky-400 px-6 py-4 text-white text-sm shadow hover:bg-sky-700 font-extrabold"
+              className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-teal-300 to-sky-400 px-6 py-4 text-white text-sm shadow font-extrabold transition-all duration-200 ease-out will-change-transform hover:scale-[1.03] hover:shadow-lg"
             >
               Get Started Today
             </Link>
             <Link
               href="#contact"
-              className="inline-flex items-center justify-center rounded-md border border-sky-300 px-6 py-4 text-sky-800 text-sm font-medium hover:bg-sky-50"
+              className="inline-flex items-center justify-center rounded-md border border-sky-300 px-6 py-4 text-sky-800 text-sm font-medium transition-all duration-200 ease-out hover:bg-sky-50 hover:scale-[1.02]"
             >
               Find Talent
             </Link>
             <Link
               href="#services"
-              className="inline-flex items-center justify-center rounded-md border border-sky-400 px-6 py-4 text-sky-800 text-sm font-medium hover:bg-sky-50"
+              className="inline-flex items-center justify-center rounded-md border border-sky-400 px-6 py-4 text-sky-800 text-sm font-medium transition-all duration-200 ease-out hover:bg-sky-50 hover:scale-[1.02]"
             >
               Explore Opportunities
             </Link>
@@ -42,8 +42,8 @@ export default function Hero() {
         </div>
 
         {/* Right visual */}
-        <div className="bg-gradient-to-b from-white to-sky-100 lg:bg-gradient-to-b lg:from-sky-50 lg:to-white lg:bg-white flex items-end w-full absolute sm:w-screen bottom-18 top-auto right-0 lg:top-0 lg:right-0 lg:w-[50vw] lg:z-0 pointer-events-none overflow-hidden">
-          <Image src={hero} className="lg:ml-5" alt="Hero" />
+        <div className="bg-gradient-to-b from-white to-sky-100 lg:bg-gradient-to-b lg:from-sky-50 lg:to-white lg:bg-white flex items-end w-full absolute sm:w-screen bottom-18 top-auto right-0 lg:top-0 lg:right-0 lg:w-[50vw] lg:z-0 pointer-events-none overflow-hidden animate-hero-in" style={{ animationDelay: "120ms" }}>
+          <Image src={hero} className="lg:ml-5" alt="Hero" priority />
         </div>
       </div>
     </section>

@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="font-sans relative overflow-x-hidden">
+    <main className="font-sans relative overflow-x-hidden pt-20">
       <Header />
       <Hero />
       <div className="absolute top-0 left-0 z-0 bg-[url('../assets/images/ellipse.png')] w-[50vw] h-[200vh] bg-no-repeat bg-contain bg-left-top"></div>
