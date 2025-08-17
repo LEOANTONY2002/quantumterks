@@ -155,20 +155,20 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Socials + CTA on mobile */}
-        <div className="flex items-center gap-3">
+        {/* Socials (hidden on mobile; shown in mobile panel instead) */}
+        <div className="hidden sm:flex items-center gap-3">
           {/* Simple social icon placeholders */}
           <a
             aria-label="Facebook"
             href="#"
-            className="hidden sm:inline-flex h-8 w-8 rounded-full bg-sky-50 text-sky-600 items-center justify-center hover:bg-sky-100"
+            className="inline-flex h-8 w-8 rounded-full bg-sky-50 text-sky-600 items-center justify-center hover:bg-sky-100"
           >
             f
           </a>
           <a
             aria-label="Instagram"
             href="#"
-            className="hidden sm:inline-flex h-8 w-8 rounded-full bg-rose-50 text-rose-600 items-center justify-center hover:bg-rose-100"
+            className="inline-flex h-8 w-8 rounded-full bg-rose-50 text-rose-600 items-center justify-center hover:bg-rose-100"
           >
             <svg
               width="15"
@@ -190,7 +190,7 @@ export default function Header() {
           <a
             aria-label="LinkedIn"
             href="#"
-            className="hidden sm:inline-flex h-8 w-8 rounded-full bg-[#4A71FB15] text-red-600 items-center justify-center hover:bg-[#4A71FB30]"
+            className="inline-flex h-8 w-8 rounded-full bg-[#4A71FB15] text-red-600 items-center justify-center hover:bg-[#4A71FB30]"
           >
             <svg
               width="18"
@@ -208,7 +208,7 @@ export default function Header() {
           <a
             aria-label="YouTube"
             href="#"
-            className="hidden sm:inline-flex h-8 w-8 rounded-full bg-red-50 text-red-600 items-center justify-center hover:bg-red-100"
+            className="inline-flex h-8 w-8 rounded-full bg-red-50 text-red-600 items-center justify-center hover:bg-red-100"
           >
             <svg
               width="18"
@@ -231,16 +231,17 @@ export default function Header() {
               </svg>
             </svg>
           </a>
-          <button
-            className="md:hidden inline-flex items-center justify-center h-9 w-9 rounded-md border border-black/10"
-            aria-label="Open menu"
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setMobileOpen((p) => !p)}
-          >
-            ☰
-          </button>
         </div>
+        {/* Mobile menu trigger (visible only on small screens) */}
+        <button
+          className="md:hidden inline-flex items-center justify-center h-9 w-9 rounded-md border border-black/10"
+          aria-label="Open menu"
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setMobileOpen((p) => !p)}
+        >
+          ☰
+        </button>
       </div>
 
       {/* Mobile menu overlay + panel */}
@@ -285,6 +286,84 @@ export default function Header() {
                 </a>
               ))}
             </nav>
+            <div className="mt-2 border-t border-black/10 pt-4">
+              <p className="text-xs text-slate-500 mb-2">Follow us</p>
+              <div className="flex items-center gap-3">
+                <a
+                  aria-label="Facebook"
+                  href="#"
+                  className="inline-flex h-9 w-9 rounded-full bg-sky-50 text-sky-600 items-center justify-center hover:bg-sky-100"
+                >
+                  f
+                </a>
+                <a
+                  aria-label="Instagram"
+                  href="#"
+                  className="inline-flex h-9 w-9 rounded-full bg-rose-50 text-rose-600 items-center justify-center hover:bg-rose-100"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.6672 12C8.6672 10.1591 10.1591 8.6664 12 8.6664C13.8409 8.6664 15.3336 10.1591 15.3336 12C15.3336 13.8409 13.8409 15.3336 12 15.3336C10.1591 15.3336 8.6672 13.8409 8.6672 12ZM6.86512 12C6.86512 14.836 9.164 17.1349 12 17.1349C14.836 17.1349 17.1349 14.836 17.1349 12C17.1349 9.164 14.836 6.86512 12 6.86512C9.164 6.86512 6.86512 9.164 6.86512 12ZM16.1382 6.66152C16.1381 6.89886 16.2084 7.13089 16.3401 7.32829C16.4719 7.52568 16.6593 7.67956 16.8785 7.77047C17.0977 7.86138 17.339 7.88525 17.5718 7.83904C17.8046 7.79283 18.0185 7.67862 18.1863 7.51087C18.3542 7.34311 18.4686 7.12934 18.515 6.89658C18.5614 6.66382 18.5377 6.42253 18.447 6.20322C18.3563 5.98392 18.2025 5.79644 18.0052 5.6645C17.808 5.53257 17.576 5.4621 17.3386 5.462H17.3382C17.02 5.46215 16.715 5.58856 16.49 5.81347C16.265 6.03837 16.1384 6.34339 16.1382 6.66152ZM7.96 20.1398C6.98504 20.0954 6.45512 19.933 6.10296 19.7958C5.63608 19.614 5.30296 19.3975 4.95272 19.0478C4.60248 18.698 4.38568 18.3652 4.20472 17.8983C4.06744 17.5463 3.90504 17.0162 3.86072 16.0413C3.81224 14.9872 3.80256 14.6706 3.80256 12.0001C3.80256 9.3296 3.81304 9.01384 3.86072 7.95888C3.90512 6.98392 4.06872 6.45488 4.20472 6.10184C4.38648 5.63496 4.60296 5.30184 4.95272 4.9516C5.30248 4.60136 5.63528 4.38456 6.10296 4.2036C6.45496 4.06632 6.98504 3.90392 7.96 3.8596C9.01408 3.81112 9.33072 3.80144 12 3.80144C14.6693 3.80144 14.9862 3.81192 16.0412 3.8596C17.0162 3.904 17.5452 4.0676 17.8982 4.2036C18.3651 4.38456 18.6982 4.60184 19.0485 4.9516C19.3987 5.30136 19.6147 5.63496 19.7965 6.10184C19.9338 6.45384 20.0962 6.98392 20.1405 7.95888C20.189 9.01384 20.1986 9.3296 20.1986 12.0001C20.1986 14.6706 20.189 14.9863 20.1405 16.0413C20.0961 17.0162 19.9329 17.5462 19.7965 17.8983C19.6147 18.3652 19.3982 18.6983 19.0485 19.0478C18.6987 19.3972 18.3651 19.614 17.8982 19.7958C17.5462 19.933 17.0162 20.0954 16.0412 20.1398C14.9871 20.1882 14.6705 20.1979 12 20.1979C9.32952 20.1979 9.01376 20.1882 7.96 20.1398ZM7.8772 2.99005C6.71096 3.04389 6.25384 3.21573 5.99464 3.31637C5.57496 3.48129 5.3116 3.66029 5.03032 3.94157C4.74904 4.22285 4.57032 4.48621 4.4054 4.90589C4.30476 5.16509 4.13292 5.62205 4.07908 6.78829C4.02776 7.88869 4.019 8.16133 4.019 12.0001C4.019 15.8389 4.0288 16.1115 4.07908 17.2096C4.13292 18.3759 4.30392 18.8329 4.4054 19.0921C4.57032 19.5118 4.74992 19.7751 5.03032 20.0564C5.3116 20.3377 5.57496 20.5167 5.99464 20.6825C6.25384 20.7832 6.71176 20.955 7.8772 21.0081C8.97328 21.0583 9.28848 21.0671 12 21.0671C14.7115 21.0671 15.0276 21.0573 16.1237 21.0081C17.29 20.9543 17.7471 20.7832 18.0063 20.6825C18.426 20.5176 18.6893 20.338 18.9706 20.0564C19.251 19.7751 19.4306 19.5118 19.5947 19.0921C19.6953 18.8329 19.8671 18.376 19.9202 17.2096C19.9715 16.1092 19.9803 15.8381 19.9803 12.0001C19.9803 8.16205 19.9715 7.89021 19.9202 6.78829C19.8674 5.62205 19.6964 5.16589 19.5947 4.90589C19.4306 4.48621 19.2519 4.22285 18.9706 3.94157C18.6893 3.66029 18.426 3.48129 18.0063 3.31637C17.7479 3.21573 17.29 3.04389 16.1237 2.99005C15.0276 2.93957 14.7124 2.93093 12 2.93093C9.2876 2.93093 8.9724 2.93957 7.8772 2.99005Z"
+                      fill="red"
+                    />
+                    <path
+                      d="M8.6672 12C8.6672 10.1591 10.1591 8.6664 12 8.6664C13.8409 8.6664 15.3336 10.1591 15.3336 12C15.3336 13.8409 13.8409 15.3336 12 15.3336C10.1591 15.3336 8.6672 13.8409 8.6672 12ZM6.86512 12C6.86512 14.836 9.164 17.1349 12 17.1349C14.836 17.1349 17.1349 14.836 17.1349 12C17.1349 9.164 14.836 6.86512 12 6.86512C9.164 6.86512 6.86512 9.164 6.86512 12ZM16.1382 6.66152C16.1381 6.89886 16.2084 7.13089 16.3401 7.32829C16.4719 7.52568 16.6593 7.67956 16.8785 7.77047C17.0977 7.86138 17.339 7.88525 17.5718 7.83904C17.8046 7.79283 18.0185 7.67862 18.1863 7.51087C18.3542 7.34311 18.4686 7.12934 18.515 6.89658C18.5614 6.66382 18.5377 6.42253 18.447 6.20322C18.3563 5.98392 18.2025 5.79644 18.0052 5.6645C17.808 5.53257 17.576 5.4621 17.3386 5.462H17.3382C17.02 5.46215 16.715 5.58856 16.49 5.81347C16.265 6.03837 16.1384 6.34339 16.1382 6.66152Z"
+                      fill="red"
+                    />
+                  </svg>
+                </a>
+                <a
+                  aria-label="LinkedIn"
+                  href="#"
+                  className="inline-flex h-9 w-9 rounded-full bg-[#4A71FB15] text-red-600 items-center justify-center hover:bg-[#4A71FB30]"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.7065 3H4.34844C3.62264 3 3.04199 3.58065 3.04199 4.30645V19.6935C3.04199 20.3903 3.62264 21 4.34844 21H19.6485C20.3743 21 20.9549 20.4194 20.9549 19.6935V4.27742C21.013 3.58065 20.4323 3 19.7065 3ZM8.35491 18.3H5.71297V9.73548H8.35491V18.3ZM7.01942 8.54516C6.14846 8.54516 5.4807 7.84839 5.4807 7.00645C5.4807 6.16452 6.17749 5.46774 7.01942 5.46774C7.86136 5.46774 8.55813 6.16452 8.55813 7.00645C8.55813 7.84839 7.91942 8.54516 7.01942 8.54516ZM18.371 18.3H15.7291V14.1484C15.7291 13.1613 15.7001 11.8548 14.3356 11.8548C12.942 11.8548 12.7388 12.9581 12.7388 14.0613V18.3H10.0968V9.73548H12.6807V10.9258H12.7097C13.0872 10.229 13.9291 9.53226 15.2356 9.53226C17.9356 9.53226 18.4291 11.2742 18.4291 13.6548V18.3H18.371Z"
+                      fill="#4A71FB"
+                    />
+                  </svg>
+                </a>
+                <a
+                  aria-label="YouTube"
+                  href="#"
+                  className="inline-flex h-9 w-9 rounded-full bg-red-50 text-red-600 items-center justify-center hover:bg-red-100"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21.5806 7.19355C21.3548 6.32258 20.6774 5.64516 19.8065 5.41935C18.2581 5 12 5 12 5C12 5 5.74194 5 4.19355 5.41935C3.32258 5.64516 2.64516 6.32258 2.41935 7.19355C2 8.77419 2 12 2 12C2 12 2 15.2581 2.41935 16.8065C2.64516 17.6774 3.32258 18.3548 4.19355 18.5806C5.74194 19 12 19 12 19C12 19 18.2581 19 19.8065 18.5806C20.6774 18.3548 21.3548 17.6774 21.5806 16.8065C22 15.2581 22 12 22 12C22 12 22 8.77419 21.5806 7.19355ZM10 15V9L15.1935 12L10 15Z"
+                        fill="red"
+                      />
+                    </svg>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
           {/* Simple CSS animation keyframes via Tailwind plugin not available, use utility alternative if present */}
         </div>

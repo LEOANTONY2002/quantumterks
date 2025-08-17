@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "Quantumterks",
   description:
     "Expert staffing solutions for technology and healthcare organizations. We bridge the gap between specialized qualifications and the demands of modern workplaces.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -29,6 +32,8 @@ export default function RootLayout({
       <head>
         <meta name="color-scheme" content="light" />
         <meta name="theme-color" content="#ffffff" />
+        {/* Fallback explicit favicon link for platforms like Netlify */}
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body
         className={`${interSans.variable} ${dmSerifDisplay.variable} antialiased`}

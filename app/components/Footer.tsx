@@ -7,11 +7,58 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Contact card */}
         <div className="rounded-xl bg-[#0f172a] text-white shadow-2xl ring-1 ring-black/10 overflow-hidden">
+          {/* Quick links inside the contact card */}
+          <nav
+            aria-label="Footer quick links"
+            className="bg-white/200 backdrop-blur-[1px] border-b border-white/10 px-4 sm:px-6 py-7"
+          >
+            <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-200">
+              <li>
+                <a
+                  href="#about"
+                  className="hover:text-[#ffffff91] border-b border-white hover:border-[#ffffff91]"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#industries"
+                  className="hover:text-[#ffffff91] border-b border-white"
+                >
+                  Industries We Serve
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  className="hover:text-[#ffffff91] border-b border-white hover:border-[#ffffff91]"
+                >
+                  Our Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#why-partner"
+                  className="hover:text-[#ffffff91] border-b border-white hover:border-[#ffffff91]"
+                >
+                  Why Partner With Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#process"
+                  className="hover:text-[#ffffff91] border-b border-white hover:border-[#ffffff91]"
+                >
+                  Our Process
+                </a>
+              </li>
+            </ul>
+          </nav>
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left: info */}
             <div className="p-6 sm:p-8">
               <h2 className="font-serif text-2xl sm:text-3xl">Contact Us</h2>
-              <p className="mt-3 text-slate-300 text-sm">Get Started Today</p>
 
               <div className="mt-6 space-y-3 text-slate-300 text-sm leading-relaxed">
                 <p>
