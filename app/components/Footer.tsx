@@ -75,7 +75,7 @@ export default function Footer() {
                 <div className="pt-2 space-y-1">
                   <p>Phone: 888-344-8532</p>
                   <p>Email: talent@quantumterks.com</p>
-                  <p>Address: vegas, galaxy center, contactor</p>
+                  <p>Address: 8 The Green, Suite B, Dover, DE 19901</p>
                   <p>Hours: Mon – Fri, 8:00 AM – 6:00 PM</p>
                 </div>
               </div>
