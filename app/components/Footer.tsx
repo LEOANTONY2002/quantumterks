@@ -95,7 +95,7 @@ export default function Footer() {
           </div>
           <nav
             aria-label="Footer quick links"
-            className="bg-[#0b12269e] backdrop-blur-[1px] border-b border-white/10 px-4 sm:px-6 py-7"
+            className="bg-[#0b12269e] backdrop-blur-[1px] border-t border-white/10 px-4 sm:px-6 py-7"
           >
             <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-200">
               <li>
