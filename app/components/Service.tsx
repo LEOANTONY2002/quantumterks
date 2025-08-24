@@ -72,7 +72,7 @@ export default function Service() {
                 {svc.children.map((group, i) => (
                   <div
                     key={group.name}
-                    className={`relative rounded-2xl p-6 transition-all duration-300 ease-out opacity-95 hover:opacity-100 transform hover:scale-[1.02] hover:-translate-y-0.5 bg-gradient-to-br from-sky-50 to-teal-20 shadow-[5px_5px_30px_#0000001a] hover:shadow-[5px_5px_30px_#00000026] reveal`}
+                    className={`relative rounded-2xl p-6 transition-all duration-300 ease-out opacity-95 hover:opacity-100 transform hover:scale-[1.02] hover:-translate-y-0.5 bg-gradient-to-br from-sky-50 to-teal-20 shadow-[5px_5px_30px_#0000001a] hover:shadow-[8px_8px_40px_#00000026]`}
                     style={{ transitionDelay: `${i * 90}ms` }}
                   >
                     <h4 className="text-lg font-semibold text-[#0e3e69]">
