@@ -4,18 +4,15 @@ import hero from "../../assets/images/hero.png";
 
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="w-full relative lg:-mt-10 pt-30 h-screen scroll-mt-24 sm:scroll-mt-0"
-    >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:h-screen lg:-mt-30 flex items-center">
+    <section id="home" className="w-full lg:-mt-10 h-screen sm:scroll-mt-0">
+      <div className="w-screen lg:max-w-7xl px-8 lg:mx-auto gap-10 h-screen flex flex-col lg:flex-row items-center justify-center">
         {/* Left text */}
         <div
           className="z-[1] animate-hero-in"
           style={{ animationDelay: "80ms" }}
         >
-          <h1 className="mt-4 font-serif text-3xl sm:text-4xl lg:text-5xl leading-tight text-slate-900 text-center lg:text-left">
-            Connect Talent with Opportunity
+          <h1 className="mt-4 font-serif text-3xl font-bold sm:text-4xl lg:text-5xl leading-tight text-slate-900 text-center lg:text-left">
+            Creating Pathways for Talent and Opportunity
           </h1>
           <p className="mt-4 text-slate-600 max-w-prose text-center lg:text-left">
             Expert staffing solutions for technology and healthcare
@@ -46,7 +43,7 @@ export default function Hero() {
 
         {/* Right visual */}
         <div
-          className="bg-gradient-to-b from-white to-sky-100 lg:bg-gradient-to-b lg:from-sky-50 lg:to-white lg:bg-white flex items-end w-full absolute sm:w-screen bottom-18 top-auto right-0 lg:top-0 lg:right-0 lg:w-[50vw] lg:z-0 pointer-events-none overflow-hidden animate-hero-in"
+          className="bg-gradient-to-b from-white to-sky-100 lg:bg-gradient-to-b lg:from-sky-50 lg:to-white lg:bg-white flex items-center w-full lg:h-screen sm:w-screen lg:w-[50vw] lg:z-0 pointer-events-none animate-hero-in lg:flex lg:align-center lg:justify-center"
           style={{ animationDelay: "120ms" }}
         >
           <Image src={hero} className="lg:ml-5" alt="Hero" priority />
