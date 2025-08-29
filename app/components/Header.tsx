@@ -189,7 +189,8 @@ export default function Header() {
           </a>
           <a
             aria-label="LinkedIn"
-            href="#"
+            target="_blank"
+            href="https://www.linkedin.com/company/quantumterks-llc/about/?viewAsMember=true"
             className="inline-flex h-8 w-8 rounded-full bg-[#4A71FB15] text-red-600 items-center justify-center hover:bg-[#4A71FB30]"
           >
             <svg
