@@ -1,4 +1,16 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Footer() {
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    industry: "",
+    message: "",
+  });
   return (
     <footer
       id="contact"
@@ -27,7 +39,7 @@ export default function Footer() {
                 </p>
                 <div className="pt-2 space-y-1">
                   <p>Phone: +1 - 469-830-8607</p>
-                  <p>Email: talent@quantumterks.com</p>
+                  <p>Email: hr@quantumterks.com</p>
                   <p>Address: 8 The Green, Suite B, Dover, DE 19901</p>
                   <p>Hours: Mon – Fri, 8:00 AM – 6:00 PM</p>
                 </div>
@@ -41,21 +53,37 @@ export default function Footer() {
                   className="w-full rounded border border-white/10 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500"
                   placeholder="Name"
                   type="text"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                 />
                 <input
                   className="w-full rounded border border-white/10 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500"
                   placeholder="Company (for employers) / Current Title (for job seekers)"
                   type="text"
+                  value={formData.company}
+                  onChange={(e) =>
+                    setFormData({ ...formData, company: e.target.value })
+                  }
                 />
                 <input
                   className="w-full rounded border border-white/10 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500"
                   placeholder="Email"
                   type="email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                 />
                 <input
                   className="w-full rounded border border-white/10 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500"
                   placeholder="Phone Number"
                   type="tel"
+                  value={formData.phone}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                 />
                 <select
                   className="w-full rounded border border-white/10 bg-transparent px-3 py-2 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 text-slate-400"
@@ -81,15 +109,22 @@ export default function Footer() {
                 <textarea
                   className="w-full min-h-28 rounded border border-white/10 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500"
                   placeholder="Message"
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                 />
-                <div className="pt-2">
+                <a
+                  href={`mailto:hr@quantumterks.com?subject=Contact%20Form%20Submission&body=Name: ${formData.name}%0ACompany: ${formData.company}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0AIndustry: ${formData.industry}%0AMessage: ${formData.message}`}
+                  className="pt-2"
+                >
                   <button
                     type="button"
                     className="inline-flex w-full items-center justify-center rounded-md bg-gradient-to-r from-teal-500 to-sky-600 px-4 py-2 text-sm font-medium text-white shadow hover:from-teal-600 hover:to-sky-700"
                   >
                     Submit
                   </button>
-                </div>
+                </a>
               </form>
             </div>
           </div>
