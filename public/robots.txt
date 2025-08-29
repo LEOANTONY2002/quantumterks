@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /private/ # If you have a private directory or any other restricted sections, otherwise, you can omit this line
+Sitemap: https://quantumterks.com/sitemap.xml
