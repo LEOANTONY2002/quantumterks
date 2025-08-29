@@ -18,14 +18,13 @@ export const metadata: Metadata = {
   description:
     "Expert staffing solutions for technology and healthcare organizations. We bridge the gap between specialized qualifications and the demands of modern workplaces.",
   icons: {
-    // Add cache-busting param to avoid stale browser caches in production
     icon: "/favicon.ico?v=2",
   },
   openGraph: {
     title: "Quantumterks",
     description:
       "Expert staffing solutions for technology and healthcare organizations.",
-    url: "https://quantumterks.netlify.app/",
+    url: "https://quantumterks.com/",
     siteName: "Quantumterks",
     images: [
       {
@@ -44,6 +43,11 @@ export const metadata: Metadata = {
     description:
       "Expert staffing solutions for technology and healthcare organizations.",
     images: ["/og-image.png"],
+  },
+  metadataBase: new URL("https://quantumterks.com"),
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
