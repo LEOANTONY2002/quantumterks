@@ -43,7 +43,7 @@ export default function Hero() {
 
         {/* Right visual */}
         <div
-          className="bg-gradient-to-b from-white to-sky-100 lg:bg-gradient-to-b lg:from-sky-50 lg:to-white lg:bg-white flex items-center w-full lg:h-screen sm:w-screen lg:w-[50vw] lg:z-0 pointer-events-none animate-hero-in lg:flex lg:align-center lg:justify-center"
+          className="bg-gradient-to-b flex items-center w-full lg:h-screen sm:w-screen lg:w-[50vw] lg:z-0 pointer-events-none animate-hero-in lg:flex lg:align-center lg:justify-center"
           style={{ animationDelay: "120ms" }}
         >
           <Image src={hero} className="lg:ml-5" alt="Hero" priority />
